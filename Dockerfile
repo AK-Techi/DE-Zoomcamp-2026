@@ -18,7 +18,7 @@ RUN uv sync --locked
 # RUN pip install pandas pyarrow
 
 # Used it to test the COPY command from local repo to docker image
-COPY pipeline/pipeline.py .
+COPY ingest_data.py .
 
 # Set entry point to run the pipeline
-ENTRYPOINT ["python", "pipeline.py"]
+ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
